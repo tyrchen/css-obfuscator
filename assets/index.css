@@ -1,7 +1,16 @@
-body {
-  background: yellow;
-}
-
 :local(.imgbox) {
   color: red;
 }
+
+:local(.imgbox .hello) {
+  color: black;
+}
+
+:local(.imgbox:hover) {
+  color: green;
+}
+
+:local(.imgbox:hover .hello) {
+  color: yellow !important;
+}
+
