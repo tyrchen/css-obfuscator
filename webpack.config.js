@@ -1,4 +1,9 @@
 // webpack.config.js
+
+var shortid = require('shortid');
+var randname = shortid.generate();
+console.log(randname);
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     // The standard entry point and output config
@@ -14,7 +19,7 @@ module.exports = {
             // Extract css files
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+                loader: ExtractTextPlugin.extract("style-loader", `css-loader?modules&importLoaders=1&localIdentName=${randname}[hash:base64:5]!postcss-loader`)
             },
             // Optionally extract less files
             // or any other compile-to-css language
